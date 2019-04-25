@@ -41,7 +41,7 @@ bintray {
     pkg {
 
         repo = 'PhoneStateSdk'
-        name = 'com.github.phonesdk'
+        name = 'com.github.phonestate'
         desc = 'PhoneStateSdk fbbdfbdfb'
         websiteUrl = 'https://github.com/Anilpathak475/PhoneState'
         vcsUrl = 'https://github.com/Anilpathak475/PhoneState.git'
