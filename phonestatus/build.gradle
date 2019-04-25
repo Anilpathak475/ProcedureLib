@@ -7,7 +7,7 @@ ext {
 
     publishedGroupId = 'com.github.phonestate'
     libraryName = 'PhoneState'
-    artifact = 'phonestate'
+    artifact = 'com.github.phonestate'
 
     libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
 
