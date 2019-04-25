@@ -5,9 +5,9 @@ ext {
     bintrayRepo = 'maven'
     bintrayName = 'PhoneStateSdk'
 
-    publishedGroupId = 'com.github.anilpathak475'
+    publishedGroupId = 'com.github.phonestate'
     libraryName = 'PhoneState'
-    artifact = 'anilpathak475'
+    artifact = 'phonestate'
 
     libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
 

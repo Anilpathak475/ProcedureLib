@@ -8,7 +8,7 @@ install {
         pom {
             project {
                 packaging 'aar'
-                groupId 'com.github.anilpathak475'
+                groupId 'com.github.phonesdk'
                 artifactId 'phonestate'
 
                 // Add your description here
