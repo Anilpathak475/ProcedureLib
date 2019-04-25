@@ -1,4 +1,4 @@
-package com.procedure.phonestate
+package com.github.phonestate
 
 import android.content.Context
 import android.content.Intent

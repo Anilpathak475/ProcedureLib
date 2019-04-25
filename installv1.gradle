@@ -1,0 +1,42 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = publishedGroupId                               // Maven Group ID for the artifact
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.github.anilpathak475'
+                artifactId 'phonestate'
+
+                // Add your description here
+                name 'PhoneState sample'
+                description 'Sample lib'
+                url 'https://github.com/Anilpathak475/PhoneState'
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'anilpathak475'
+                        name 'Anil Pathak'
+                        email 'Anilpathak475@gmail.com'
+                    }
+                }
+                scm {
+                    connection 'https://github.com/Anilpathak475/PhoneState'
+                    developerConnection 'https://github.com/Anilpathak475/PhoneState.git'
+                    url 'https://github.com/Anilpathak475/PhoneState'
+
+                }
+            }
+        }
+    }
+}

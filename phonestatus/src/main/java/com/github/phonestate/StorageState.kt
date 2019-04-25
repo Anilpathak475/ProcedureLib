@@ -1,4 +1,4 @@
-package com.procedure.phonestate
+package com.github.phonestate
 
 import android.app.ActivityManager
 import android.content.Context
@@ -6,7 +6,7 @@ import android.os.Environment
 import android.os.StatFs
 
 
-class StorageState(val context: Context) {
+class StorageState(private val context: Context) {
     private val error = "Not available"
 
     fun storageStatus(): Storage {

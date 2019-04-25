@@ -1,4 +1,4 @@
-package com.procedure.phonestate
+package com.github.phonestate
 
 import android.annotation.SuppressLint
 import android.content.Context
