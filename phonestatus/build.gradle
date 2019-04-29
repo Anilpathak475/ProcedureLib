@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 28
@@ -30,15 +32,16 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation "androidx.core:core-ktx:+"
+    implementation 'com.android.support:support-annotations:28.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'com.github.phonestate'   // Has to be same as your library module name
+    bintrayName = 'phonestate'   // Has to be same as your library module name
 
     publishedGroupId = 'com.github.phonestate'
-    libraryName = 'PhoneState'
+    libraryName = 'RootState'
     artifact = 'phonestate'     // Has to be same as your library module name
 
     libraryDescription = 'Android Library to make any text into Toast with Awesome prepended to the text'
