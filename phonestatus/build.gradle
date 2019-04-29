@@ -1,33 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'PhoneStateSdk'
 
-    publishedGroupId = 'com.github.phonestate'
-    libraryName = 'PhoneState'
-    artifact = 'com.github.phonestate'
-
-    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
-
-    siteUrl = 'https://github.com/Anilpathak475/ProcedureLib'
-    gitUrl = 'https://github.com/Anilpathak475/ProcedureLib.git'
-
-    libraryVersion = '0.0.1'
-
-    developerId = 'Anilpathak475'
-    developerName = 'Anil Pathak'
-    developerEmail = 'Anilpathak475@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
 android {
     compileSdkVersion 28
-
-
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
@@ -56,8 +32,31 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-repositories {
-    mavenCentral()
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'com.github.phonestate'   // Has to be same as your library module name
+
+    publishedGroupId = 'com.github.phonestate'
+    libraryName = 'PhoneState'
+    artifact = 'phonestate'     // Has to be same as your library module name
+
+    libraryDescription = 'Android Library to make any text into Toast with Awesome prepended to the text'
+
+    // Your github repo link
+    siteUrl = 'https://github.com/Anilpathak475/ProcedureLib'
+    gitUrl = 'https://github.com/Anilpathak475/ProcedureLib.git'
+    githubRepository= 'anilpathak475/ProcedureLin'
+
+    libraryVersion = '1.0'
+
+    developerId = 'anilpathak'
+    developerName = 'AnilPathak'
+    developerEmail = 'anilpathak475@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
-apply from: 'https://raw.githubusercontent.com/anilpathak475/ProcedureLib/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/anilpathak475/ProcedureLib/master/bintrayv1.gradle'
+apply from: 'https://raw.githubusercontent.com/Anilpathak475/ProcedureLib/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/Anilpathak475/ProcedureLib/master/bintrayv1.gradle'
