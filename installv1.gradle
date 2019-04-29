@@ -8,32 +8,32 @@ install {
         pom {
             project {
                 packaging 'aar'
-                groupId 'com.github.phonestate'
-                artifactId 'com.github.phonestate'
+                groupId publishedGroupId
+                artifactId artifact
 
                 // Add your description here
-                name 'PhoneState sample'
-                description 'Sample lib'
-                url 'https://github.com/Anilpathak475/ProcedureLib'
+                name libraryName
+                description libraryDescription
+                url siteUrl
 
                 // Set your license
                 licenses {
                     license {
-                        name 'MIT'
-                        url 'https://opensource.org/licenses/MIT'
+                        name licenseName
+                        url licenseUrl
                     }
                 }
                 developers {
                     developer {
-                        id 'anilpathak475'
-                        name 'Anil Pathak'
-                        email 'Anilpathak475@gmail.com'
+                        id developerId
+                        name developerName
+                        email developerEmail
                     }
                 }
                 scm {
-                    connection 'https://github.com/Anilpathak475/ProcedureLib'
-                    developerConnection 'https://github.com/Anilpathak475/ProcedureLib.git'
-                    url 'https://github.com/Anilpathak475/ProcedureLib'
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
 
                 }
             }
