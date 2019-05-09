@@ -16,25 +16,15 @@
 
 package com.github.phonestate
 
-import android.Manifest
-import android.Manifest.permission
-import android.accounts.Account
-import android.accounts.AccountManager
 import android.annotation.SuppressLint
 import android.content.Context
-import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Build.VERSION
-import android.provider.Settings
 import android.provider.Settings.Secure
-
 import android.util.Log
-import android.webkit.WebSettings
-import android.webkit.WebView
 import androidx.annotation.RequiresPermission
-
-import java.util.UUID
+import java.util.*
 
 /**
  * EasyId Mod Class
@@ -56,25 +46,25 @@ class EasyIdMod
      *
      * @return the string [ ]
      */
-    val accounts: Array<String>
-        @RequiresPermission(permission.GET_ACCOUNTS)
-        @Deprecated("")
-        get() {
-            var result: Array<String>? = null
-            if (VERSION.SDK_INT < Build.VERSION_CODES.O && PermissionUtil.hasPermission(
-                    this.context,
-                    permission.GET_ACCOUNTS
-                )
-            ) {
-                val accounts = AccountManager.get(this.context).getAccountsByType("com.google")
-                result = arrayOfNulls(accounts.size)
-                for (i in accounts.indices) {
-                    result[i] = accounts[i].name
-                }
-            }
-            return CheckValidityUtil.checkValidData(result)
-        }
-
+    /* val accounts: Array<String>
+         @RequiresPermission(permission.GET_ACCOUNTS)
+         @Deprecated("")
+         get() {
+             val result: Array<String>?
+             if (VERSION.SDK_INT < Build.VERSION_CODES.O && PermissionUtil.hasPermission(
+                     this.context,
+                     permission.GET_ACCOUNTS
+                 )
+             ) {
+                 val accounts = AccountManager.get(this.context).getAccountsByType("com.google")
+                 result = arrayOf<String>(accounts.size)
+                 for (i in accounts.indices) {
+                     result[i] = accounts[i].name
+                 }
+             }
+             return CheckValidityUtil.checkValidListData(result!!)
+         }
+ */
     /**
      * Gets android id.
      *
@@ -106,10 +96,10 @@ class EasyIdMod
             val c = this.context.contentResolver.query(uri, null, null, params, null)
 
             if (c == null) {
-                return EasyDeviceInfo.notFoundVal
+                return EasyDeviceInfo.notFoundValue
             } else if (!c.moveToFirst() || c.columnCount < 2) {
                 c.close()
-                return EasyDeviceInfo.notFoundVal
+                return EasyDeviceInfo.notFoundValue
             }
 
             try {
@@ -118,7 +108,7 @@ class EasyIdMod
                 return gsfID
             } catch (e: NumberFormatException) {
                 c.close()
-                return EasyDeviceInfo.notFoundVal
+                return EasyDeviceInfo.notFoundValue
             }
 
         }
@@ -171,15 +161,4 @@ class EasyIdMod
      *
      * @return the ua
      */
-    val ua: String
-        get() {
-            val systemUa = System.getProperty("http.agent")
-            val result: String
-            result = if (VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-                WebSettings.getDefaultUserAgent(this.context)
-                        + "__" + systemUa
-            else
-                WebView(this.context).settings.userAgentString + "__" + systemUa
-            return CheckValidityUtil.checkValidData(result)
-        }
 }

@@ -16,28 +16,22 @@
 
 package com.github.phonestate
 
-import android.content.res.Configuration.ORIENTATION_LANDSCAPE
-import android.content.res.Configuration.ORIENTATION_PORTRAIT
-import android.telephony.TelephonyManager.PHONE_TYPE_CDMA
-import android.telephony.TelephonyManager.PHONE_TYPE_GSM
-import android.telephony.TelephonyManager.PHONE_TYPE_NONE
-
-import android.Manifest
 import android.Manifest.permission
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.content.res.Configuration.ORIENTATION_LANDSCAPE
+import android.content.res.Configuration.ORIENTATION_PORTRAIT
 import android.os.Build
 import android.os.Build.VERSION
 import android.os.Build.VERSION_CODES
-
 import android.telephony.TelephonyManager
+import android.telephony.TelephonyManager.*
 import android.util.DisplayMetrics
-import android.view.Display
 import android.view.WindowManager
 import androidx.annotation.RequiresPermission
 import java.io.File
-import java.util.Locale
+import java.util.*
 
 /**
  * EasyDevice Mod Class
@@ -75,7 +69,7 @@ class EasyDeviceMod
      */
     val buildBrand: String
         get() = CheckValidityUtil.checkValidData(
-            CheckValidityUtil.handleIllegalCharacterInResult(Build.BRAND)
+            CheckValidityUtil.handleIllegalCharacterInResult(Build.BRAND)!!
         )
 
     /**
@@ -201,7 +195,7 @@ class EasyDeviceMod
                 result = this.tm.deviceId
             }
 
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -219,7 +213,7 @@ class EasyDeviceMod
      */
     val manufacturer: String
         get() = CheckValidityUtil.checkValidData(
-            CheckValidityUtil.handleIllegalCharacterInResult(Build.MANUFACTURER)
+            CheckValidityUtil.handleIllegalCharacterInResult(Build.MANUFACTURER)!!
         )
 
     /**
@@ -229,7 +223,7 @@ class EasyDeviceMod
      */
     val model: String
         get() = CheckValidityUtil.checkValidData(
-            CheckValidityUtil.handleIllegalCharacterInResult(Build.MODEL)
+            CheckValidityUtil.handleIllegalCharacterInResult(Build.MODEL)!!
         )
 
     /**
@@ -262,7 +256,7 @@ class EasyDeviceMod
                 VERSION_CODES.M -> codename = "Marshmallow"
                 VERSION_CODES.N, VERSION_CODES.N_MR1 -> codename = "Nougat"
                 VERSION_CODES.O -> codename = "O"
-                else -> codename = EasyDeviceInfo.notFoundVal
+                else -> codename = EasyDeviceInfo.notFoundValue
             }
             return codename
         }
@@ -293,7 +287,7 @@ class EasyDeviceMod
                 result = this.tm.line1Number
             }
 
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -332,7 +326,7 @@ class EasyDeviceMod
             if (VERSION.SDK_INT >= VERSION_CODES.ICE_CREAM_SANDWICH) {
                 result = Build.getRadioVersion()
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -367,7 +361,7 @@ class EasyDeviceMod
                     result = Build.getSerial()
                 }
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**

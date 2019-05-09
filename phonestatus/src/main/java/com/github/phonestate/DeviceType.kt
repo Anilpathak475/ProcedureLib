@@ -4,16 +4,10 @@ package com.github.phonestate
 
 import androidx.annotation.IntDef
 import com.github.phonestate.DeviceType.Companion.PHABLET
-import com.github.phonestate.DeviceType.Companion.PHONE
 import com.github.phonestate.DeviceType.Companion.TABLET
 import com.github.phonestate.DeviceType.Companion.TV
-import com.github.phonestate.DeviceType.Companion.WATCH
 
-import java.lang.annotation.RetentionPolicy
-import kotlin.annotation.Retention
-
-@IntDef(DeviceType.WATCH, DeviceTypePHONE, PHABLET, TABLET, TV)
-@Retention(AnnotationTarget.CLASS)
+@IntDef(DeviceType.WATCH, DeviceType.PHONE, PHABLET, TABLET, TV)
 annotation class DeviceType {
     companion object {
 

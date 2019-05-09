@@ -21,8 +21,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Build.VERSION
@@ -30,14 +28,10 @@ import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Log
 import androidx.annotation.RequiresPermission
-
 import java.net.Inet4Address
-import java.net.InetAddress
 import java.net.NetworkInterface
 import java.net.SocketException
-import java.util.Collections
-import java.util.Enumeration
-import java.util.Locale
+import java.util.*
 
 /**
  * EasyNetwork Mod Class
@@ -78,7 +72,7 @@ class EasyNetworkMod
                 }
             }
 
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -111,7 +105,7 @@ class EasyNetworkMod
                 }
             }
 
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -197,7 +191,7 @@ class EasyNetworkMod
                     }
                 }
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -216,25 +210,21 @@ class EasyNetworkMod
             var result: String? = null
             if (PermissionUtil.hasPermission(this.context, permission.ACCESS_WIFI_STATE)) {
                 val cm = this.context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-                if (cm != null) {
-                    val networkInfo = cm.activeNetworkInfo
-                    if (networkInfo == null) {
-                        result = null
-                    }
+                val networkInfo = cm.activeNetworkInfo
+                if (networkInfo == null) {
+                    result = null
+                }
 
-                    if (networkInfo != null && networkInfo.isConnected) {
-                        val wifiManager =
-                            this.context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                        if (wifiManager != null) {
-                            val connectionInfo = wifiManager.connectionInfo
-                            if (connectionInfo != null && !TextUtils.isEmpty(connectionInfo.ssid)) {
-                                result = connectionInfo.linkSpeed.toString() + " Mbps"
-                            }
-                        }
+                if (networkInfo != null && networkInfo.isConnected) {
+                    val wifiManager =
+                        this.context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                    val connectionInfo = wifiManager.connectionInfo
+                    if (connectionInfo != null && !TextUtils.isEmpty(connectionInfo.ssid)) {
+                        result = connectionInfo.linkSpeed.toString() + " Mbps"
                     }
                 }
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -317,25 +307,21 @@ class EasyNetworkMod
             var result: String? = null
             if (PermissionUtil.hasPermission(this.context, permission.ACCESS_WIFI_STATE)) {
                 val cm = this.context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-                if (cm != null) {
-                    val networkInfo = cm.activeNetworkInfo
-                    if (networkInfo == null) {
-                        result = null
-                    }
+                val networkInfo = cm.activeNetworkInfo
+                if (networkInfo == null) {
+                    result = null
+                }
 
-                    if (networkInfo != null && networkInfo.isConnected) {
-                        val wifiManager =
-                            this.context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-                        if (wifiManager != null) {
-                            val connectionInfo = wifiManager.connectionInfo
-                            if (connectionInfo != null && !TextUtils.isEmpty(connectionInfo.ssid)) {
-                                result = connectionInfo.ssid
-                            }
-                        }
+                if (networkInfo != null && networkInfo.isConnected) {
+                    val wifiManager =
+                        this.context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                    val connectionInfo = wifiManager.connectionInfo
+                    if (connectionInfo != null && !TextUtils.isEmpty(connectionInfo.ssid)) {
+                        result = connectionInfo.ssid
                     }
                 }
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidData(result!!)
         }
 
     /**
@@ -358,10 +344,8 @@ class EasyNetworkMod
             ) {
                 val cm = this.context.applicationContext
                     .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-                if (cm != null) {
-                    val netInfo = cm.activeNetworkInfo
-                    return netInfo != null && netInfo.isConnected
-                }
+                val netInfo = cm.activeNetworkInfo
+                return netInfo != null && netInfo.isConnected
             }
             return false
         }
@@ -384,9 +368,7 @@ class EasyNetworkMod
             var wifiState = false
 
             val wifiManager = this.context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-            if (wifiManager != null) {
-                wifiState = wifiManager.isWifiEnabled
-            }
+            wifiState = wifiManager.isWifiEnabled
             return wifiState
         }
 

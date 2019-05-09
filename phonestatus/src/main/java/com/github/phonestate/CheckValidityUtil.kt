@@ -17,7 +17,7 @@ internal object CheckValidityUtil {
     fun checkValidData(data: String): String {
         var tempData: String? = data
         if (tempData == null || tempData.isEmpty()) {
-            tempData = EasyDeviceInfo.notFoundVal
+            tempData = EasyDeviceInfo.notFoundValue
         }
         return tempData
     }
@@ -28,10 +28,10 @@ internal object CheckValidityUtil {
      * @param data the data
      * @return the string [ ]
      */
-    fun checkValidData(data: Array<String>): Array<String> {
-        var tempData: Array<String>? = data
-        if (tempData == null || tempData.isEmpty()) {
-            tempData = arrayOf(EasyDeviceInfo.notFoundVal)
+    fun checkValidListData(data: Array<String>): Array<String> {
+        var tempData: Array<String> = data
+        if (tempData.isEmpty()) {
+            tempData = arrayOf(EasyDeviceInfo.notFoundValue)
         }
         return tempData
     }

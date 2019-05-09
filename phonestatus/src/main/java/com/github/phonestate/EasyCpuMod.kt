@@ -51,7 +51,7 @@ class EasyCpuMod {
             }
 
             return CheckValidityUtil.checkValidData(
-                CheckValidityUtil.handleIllegalCharacterInResult(result)
+                CheckValidityUtil.handleIllegalCharacterInResult(result!!)!!
             )
         }
 
@@ -67,7 +67,7 @@ class EasyCpuMod {
                 val supportedABIS = Build.SUPPORTED_64_BIT_ABIS
 
                 val supportedABIString = StringBuilder()
-                if (supportedABIS.size > 0) {
+                if (supportedABIS.isNotEmpty()) {
                     for (abis in supportedABIS) {
                         supportedABIString.append(abis).append('_')
                     }
@@ -78,7 +78,7 @@ class EasyCpuMod {
                 result = supportedABIString.toString()
             }
             return CheckValidityUtil.checkValidData(
-                CheckValidityUtil.handleIllegalCharacterInResult(result)
+                CheckValidityUtil.handleIllegalCharacterInResult(result!!)!!
             )
         }
 
@@ -93,7 +93,7 @@ class EasyCpuMod {
             if (VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 val supportedABIS = Build.SUPPORTED_ABIS
                 val supportedABIString = StringBuilder()
-                if (supportedABIS.size > 0) {
+                if (supportedABIS.isNotEmpty()) {
                     for (abis in supportedABIS) {
                         supportedABIString.append(abis).append('_')
                     }
@@ -104,7 +104,7 @@ class EasyCpuMod {
                 result = supportedABIString.toString()
             }
             return CheckValidityUtil.checkValidData(
-                CheckValidityUtil.handleIllegalCharacterInResult(result)
+                CheckValidityUtil.handleIllegalCharacterInResult(result!!)!!
             )
         }
 
@@ -115,11 +115,11 @@ class EasyCpuMod {
      */
     val supported32bitABIS: Array<String>
         get() {
-            var result = arrayOf(EasyDeviceInfo.notFoundVal)
+            var result = arrayOf(EasyDeviceInfo.notFoundValue)
             if (VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 result = Build.SUPPORTED_32_BIT_ABIS
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidListData(result)
         }
 
     /**
@@ -129,11 +129,11 @@ class EasyCpuMod {
      */
     val supported64bitABIS: Array<String>
         get() {
-            var result = arrayOf(EasyDeviceInfo.notFoundVal)
+            var result = arrayOf(EasyDeviceInfo.notFoundValue)
             if (VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 result = Build.SUPPORTED_64_BIT_ABIS
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidListData(result)
         }
 
     /**
@@ -143,10 +143,10 @@ class EasyCpuMod {
      */
     val supportedABIS: Array<String>
         get() {
-            var result = arrayOf(EasyDeviceInfo.notFoundVal)
+            var result = arrayOf(EasyDeviceInfo.notFoundValue)
             if (VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 result = Build.SUPPORTED_ABIS
             }
-            return CheckValidityUtil.checkValidData(result)
+            return CheckValidityUtil.checkValidListData(result)
         }
 }

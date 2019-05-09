@@ -59,7 +59,7 @@ class EasyDisplayMod
                 else -> {
                 }
             }
-            return CheckValidityUtil.checkValidData(densityStr)
+            return CheckValidityUtil.checkValidData(densityStr!!)
         }
 
     val layoutDirection: Int
@@ -67,7 +67,7 @@ class EasyDisplayMod
             this.context.resources.configuration
                 .layoutDirection
         else
-            this.context.resources.configuration.SCREENLAYOUT_LAYOUTDIR_LTR
+            this.context.resources.configuration.screenLayout
 
     val orientation: Int
         get() = this.context.resources.configuration.orientation
@@ -113,7 +113,7 @@ class EasyDisplayMod
     init {
 
         val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        this.display = wm?.defaultDisplay
+        this.display = wm.defaultDisplay
     }
 
     /**

@@ -1,1 +1,1 @@
-include ':app', ':phonestatus'
+include ':app', ':phonestatus', ':speedtest'

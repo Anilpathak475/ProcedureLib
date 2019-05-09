@@ -16,7 +16,6 @@
 
 package com.github.phonestate
 
-import com.github.anilpathak475.BuildConfig
 
 /**
  * Easy device info class.
