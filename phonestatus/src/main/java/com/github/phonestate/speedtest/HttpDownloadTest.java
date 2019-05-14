@@ -11,9 +11,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author erdigurbuz
- */
 public class HttpDownloadTest extends AsyncTask<Void, Void, Void> {
 
     public String fileURL = "";
