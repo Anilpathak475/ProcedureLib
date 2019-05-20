@@ -8,7 +8,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class BatteryState(context: Context) {
-    private val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { it ->
+    private val batteryStatus: Intent? = IntentFilter(Intent.ACTION_BATTERY_CHANGED).let {
         context.registerReceiver(null, it)
     }
 

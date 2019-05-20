@@ -128,6 +128,6 @@ class EasyAppMod
 
     companion object {
 
-        private val NAME_NOT_FOUND_EXCEPTION = "Name Not Found Exception"
+        private const val NAME_NOT_FOUND_EXCEPTION = "Name Not Found Exception"
     }
 }

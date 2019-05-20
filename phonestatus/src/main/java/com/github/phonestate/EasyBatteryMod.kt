@@ -103,13 +103,12 @@ class EasyBatteryMod
         @ChargingVia
         get() {
             val batteryStatus = this.batteryStatusIntent
-            val chargePlug = batteryStatus!!.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)
 
-            when (chargePlug) {
-                BatteryManager.BATTERY_PLUGGED_AC -> return ChargingVia.AC
-                BatteryManager.BATTERY_PLUGGED_USB -> return ChargingVia.USB
-                BatteryManager.BATTERY_PLUGGED_WIRELESS -> return ChargingVia.WIRELESS
-                else -> return ChargingVia.UNKNOWN_SOURCE
+            return when (batteryStatus!!.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0)) {
+                BatteryManager.BATTERY_PLUGGED_AC -> ChargingVia.AC
+                BatteryManager.BATTERY_PLUGGED_USB -> ChargingVia.USB
+                BatteryManager.BATTERY_PLUGGED_WIRELESS -> ChargingVia.WIRELESS
+                else -> ChargingVia.UNKNOWN_SOURCE
             }
         }
 
